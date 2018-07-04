@@ -14,17 +14,17 @@ class OwnersController < ApplicationController
 
   def create
     @owner = Owner.new(owner_params)
-    @owner.save
-    redirect_to @owner
-    # redirect_to owner_path(@owner)
+    if @owner.save
+      redirect_to @owner
+    else
+      render :new
+    end
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   def destroy

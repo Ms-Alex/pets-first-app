@@ -4,8 +4,25 @@
 <h3><%= link_to "Create a pet!", new_pet_path %></h3>
 <hr>
 
+
+<%= form_tag(pets_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Pet Type" %>
+
+    <%= submit_tag "Search", :search => nil %>
+
+<% end %>
+
+
 <% @pets.each do |pet| %>
   <p>
   <%= link_to pet.name, pet_path(pet) %>
   </p>
+
+<% end %>
+
+
+<% if @pets.blank? %>
+  <h4>There are no pets matching that search term.</h4>
+    <br>
+  <%= link_to "Go Back", pets_path %>
 <% end %>
