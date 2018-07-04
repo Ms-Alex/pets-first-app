@@ -1,0 +1,11 @@
+<h1>Owners' Page</h1>
+<!-- hr is for horizontal ruler -->
+<hr><hr>
+<h3><%= link_to "Create an owner!", new_owner_path %></h3>
+<hr>
+
+<% @owners.each do |owner| %>
+  <p>
+  <%= link_to owner.name, owner %>
+  </p>
+<% end %>
